@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Api.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20250310075639_Initial")]
+    [Migration("20250310192138_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -76,6 +76,23 @@ namespace Api.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Api.Models.Cart", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Carts");
+                });
+
             modelBuilder.Entity("Api.Models.Color", b =>
                 {
                     b.Property<int>("Id")
@@ -116,6 +133,30 @@ namespace Api.Migrations
                             Id = 5,
                             Name = "gold"
                         });
+                });
+
+            modelBuilder.Entity("Api.Models.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PhoneId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("PhoneId");
+
+                    b.ToTable("Items");
                 });
 
             modelBuilder.Entity("Api.Models.Model", b =>
@@ -311,6 +352,116 @@ namespace Api.Migrations
                     b.HasIndex("ModelId");
 
                     b.ToTable("Phones");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrandId = 1,
+                            ColorId = 1,
+                            ModelId = 1,
+                            Price = 500m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrandId = 1,
+                            ColorId = 2,
+                            ModelId = 2,
+                            Price = 600m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 1,
+                            ColorId = 3,
+                            ModelId = 3,
+                            Price = 1200m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 2,
+                            ColorId = 4,
+                            ModelId = 4,
+                            Price = 1000m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 2,
+                            ColorId = 5,
+                            ModelId = 5,
+                            Price = 800m
+                        });
+                });
+
+            modelBuilder.Entity("Api.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("PhoneUser", b =>
+                {
+                    b.Property<int>("LikedById")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("LikedPhonesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("LikedById", "LikedPhonesId");
+
+                    b.HasIndex("LikedPhonesId");
+
+                    b.ToTable("PhoneUser");
+                });
+
+            modelBuilder.Entity("Api.Models.Cart", b =>
+                {
+                    b.HasOne("Api.Models.User", "User")
+                        .WithOne("Cart")
+                        .HasForeignKey("Api.Models.Cart", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Api.Models.Item", b =>
+                {
+                    b.HasOne("Api.Models.Cart", "Cart")
+                        .WithMany("Items")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Api.Models.Phone", "Phone")
+                        .WithMany("Items")
+                        .HasForeignKey("PhoneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Phone");
                 });
 
             modelBuilder.Entity("Api.Models.Model", b =>
@@ -351,11 +502,31 @@ namespace Api.Migrations
                     b.Navigation("Model");
                 });
 
+            modelBuilder.Entity("PhoneUser", b =>
+                {
+                    b.HasOne("Api.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("LikedById")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Api.Models.Phone", null)
+                        .WithMany()
+                        .HasForeignKey("LikedPhonesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Api.Models.Brand", b =>
                 {
                     b.Navigation("Models");
 
                     b.Navigation("Phones");
+                });
+
+            modelBuilder.Entity("Api.Models.Cart", b =>
+                {
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("Api.Models.Color", b =>
@@ -366,6 +537,16 @@ namespace Api.Migrations
             modelBuilder.Entity("Api.Models.Model", b =>
                 {
                     b.Navigation("Phones");
+                });
+
+            modelBuilder.Entity("Api.Models.Phone", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("Api.Models.User", b =>
+                {
+                    b.Navigation("Cart");
                 });
 #pragma warning restore 612, 618
         }

@@ -39,6 +39,21 @@ namespace Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    Username = table.Column<string>(type: "TEXT", nullable: false),
+                    Password = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Models",
                 columns: table => new
                 {
@@ -54,6 +69,25 @@ namespace Api.Migrations
                         name: "FK_Models_Brands_BrandId",
                         column: x => x.BrandId,
                         principalTable: "Brands",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Carts_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -88,6 +122,57 @@ namespace Api.Migrations
                         name: "FK_Phones_Models_ModelId",
                         column: x => x.ModelId,
                         principalTable: "Models",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Items",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    PhoneId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CartId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Quantity = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Items", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Items_Carts_CartId",
+                        column: x => x.CartId,
+                        principalTable: "Carts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Items_Phones_PhoneId",
+                        column: x => x.PhoneId,
+                        principalTable: "Phones",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PhoneUser",
+                columns: table => new
+                {
+                    LikedById = table.Column<int>(type: "INTEGER", nullable: false),
+                    LikedPhonesId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhoneUser", x => new { x.LikedById, x.LikedPhonesId });
+                    table.ForeignKey(
+                        name: "FK_PhoneUser_Phones_LikedPhonesId",
+                        column: x => x.LikedPhonesId,
+                        principalTable: "Phones",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PhoneUser_Users_LikedById",
+                        column: x => x.LikedById,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -150,6 +235,34 @@ namespace Api.Migrations
                     { 24, 8, "moto e 2020" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "Phones",
+                columns: new[] { "Id", "BrandId", "ColorId", "ModelId", "Price" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, 1, 500m },
+                    { 2, 1, 2, 2, 600m },
+                    { 3, 1, 3, 3, 1200m },
+                    { 4, 2, 4, 4, 1000m },
+                    { 5, 2, 5, 5, 800m }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_UserId",
+                table: "Carts",
+                column: "UserId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Items_CartId",
+                table: "Items",
+                column: "CartId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Items_PhoneId",
+                table: "Items",
+                column: "PhoneId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Models_BrandId",
                 table: "Models",
@@ -169,13 +282,30 @@ namespace Api.Migrations
                 name: "IX_Phones_ModelId",
                 table: "Phones",
                 column: "ModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PhoneUser_LikedPhonesId",
+                table: "PhoneUser",
+                column: "LikedPhonesId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Items");
+
+            migrationBuilder.DropTable(
+                name: "PhoneUser");
+
+            migrationBuilder.DropTable(
+                name: "Carts");
+
+            migrationBuilder.DropTable(
                 name: "Phones");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Colors");

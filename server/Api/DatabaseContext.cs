@@ -9,17 +9,12 @@ namespace Api
         public DbSet<Color> Colors => Set<Color>();
         public DbSet<Model> Models => Set<Model>();
         public DbSet<Phone> Phones => Set<Phone>();
+        public DbSet<User> Users => Set<User>();
+        public DbSet<Cart> Carts => Set<Cart>();
+        public DbSet<Item> Items => Set<Item>();
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected void Seed(ModelBuilder modelBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlite("Data Source=app.db");
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Entity<Brand>().HasData(
                 new Brand { Id = 1, Name = "samsung" },
                 new Brand { Id = 2, Name = "iphone" },
@@ -65,6 +60,33 @@ namespace Api
                 new Color { Id = 4, Name = "gray" },
                 new Color { Id = 5, Name = "gold" }
             );
+
+            modelBuilder.Entity<Phone>().HasData(
+                new Phone { Id = 1, BrandId = 1, ModelId = 1, ColorId = 1, Price = 500 },
+                new Phone { Id = 2, BrandId = 1, ModelId = 2, ColorId = 2, Price = 600 },
+                new Phone { Id = 3, BrandId = 1, ModelId = 3, ColorId = 3, Price = 1200 },
+                new Phone { Id = 4, BrandId = 2, ModelId = 4, ColorId = 4, Price = 1000 },
+                new Phone { Id = 5, BrandId = 2, ModelId = 5, ColorId = 5, Price = 800 }
+            );
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlite("Data Source=app.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Cart)
+                .WithOne(c => c.User)
+                .HasForeignKey<Cart>(c => c.UserId);
+
+            modelBuilder.Entity<Phone>().HasMany(p => p.LikedBy).WithMany(u => u.LikedPhones);
+            this.Seed(modelBuilder);
         }
     }
 }

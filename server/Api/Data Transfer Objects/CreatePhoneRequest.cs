@@ -2,7 +2,7 @@
 
 namespace Api.Data_Transfer_Objects
 {
-    public class CreatePhoneBody
+    public class CreatePhoneRequest
     {
         [Required(ErrorMessage = "BrandId is required.")]
         public int BrandId { get; set; }
