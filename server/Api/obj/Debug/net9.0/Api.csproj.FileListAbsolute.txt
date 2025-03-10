@@ -145,3 +145,8 @@ D:\Web Development\USP_Project\server\Api\obj\Debug\net9.0\refint\Api.dll
 D:\Web Development\USP_Project\server\Api\obj\Debug\net9.0\Api.pdb
 D:\Web Development\USP_Project\server\Api\obj\Debug\net9.0\Api.genruntimeconfig.cache
 D:\Web Development\USP_Project\server\Api\obj\Debug\net9.0\ref\Api.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

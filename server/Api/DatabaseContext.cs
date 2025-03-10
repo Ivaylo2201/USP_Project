@@ -9,9 +9,6 @@ namespace Api
         public DbSet<Color> Colors => Set<Color>();
         public DbSet<Model> Models => Set<Model>();
         public DbSet<Phone> Phones => Set<Phone>();
-        public DbSet<User> Users => Set<User>();
-        public DbSet<Item> Items => Set<Item>();
-        public DbSet<Cart> Carts => Set<Cart>();
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,51 +21,50 @@ namespace Api
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Brand>().HasData(
-                new Brand { Name = "samsung" },
-                new Brand { Name = "iphone" },
-                new Brand { Name = "xiaomi" },
-                new Brand { Name = "huawei" },
-                new Brand { Name = "nokia" },
-                new Brand { Name = "lg" },
-                new Brand { Name = "sony" },
-                new Brand { Name = "motorola" }
+                new Brand { Id = 1, Name = "samsung" },
+                new Brand { Id = 2, Name = "iphone" },
+                new Brand { Id = 3, Name = "xiaomi" },
+                new Brand { Id = 4, Name = "huawei" },
+                new Brand { Id = 5, Name = "nokia" },
+                new Brand { Id = 6, Name = "lg" },
+                new Brand { Id = 7, Name = "sony" },
+                new Brand { Id = 8, Name = "motorola" }
             );
 
             modelBuilder.Entity<Model>().HasData(
-                new Model { Name = "galaxy s23", BrandId = 1 },
-                new Model { Name = "galaxy note 20", BrandId = 1 },
-                new Model { Name = "galaxy z fold 4", BrandId = 1 },
-                new Model { Name = "iphone 14", BrandId = 2 },
-                new Model { Name = "iphone 13", BrandId = 2 },
-                new Model { Name = "iphone 12", BrandId = 2 },
-                new Model { Name = "mi 11", BrandId = 3 },
-                new Model { Name = "redmi note 10", BrandId = 3 },
-                new Model { Name = "poco f4", BrandId = 3 },
-                new Model { Name = "p40 pro", BrandId = 4 },
-                new Model { Name = "mate 40 pro", BrandId = 4 },
-                new Model { Name = "p30 lite", BrandId = 4 },
-                new Model { Name = "nokia 8.3", BrandId = 5 },
-                new Model { Name = "nokia 7.2", BrandId = 5 },
-                new Model { Name = "nokia 5.4", BrandId = 5 },
-                new Model { Name = "lg velvet", BrandId = 6 },
-                new Model { Name = "lg v60 thinq", BrandId = 6 },
-                new Model { Name = "lg g8x thinq", BrandId = 6 },
-                new Model { Name = "sony xperia 1 ii", BrandId = 7 },
-                new Model { Name = "sony xperia 10 ii", BrandId = 7 },
-                new Model { Name = "sony xperia l4", BrandId = 7 },
-                new Model { Name = "moto g power", BrandId = 8 },
-                new Model { Name = "moto edge 20", BrandId = 8 },
-                new Model { Name = "moto e 2020", BrandId = 8 }
+                new Model { Id = 1, Name = "galaxy s23", BrandId = 1 },
+                new Model { Id = 2, Name = "galaxy note 20", BrandId = 1 },
+                new Model { Id = 3, Name = "galaxy z fold 4", BrandId = 1 },
+                new Model { Id = 4, Name = "iphone 14", BrandId = 2 },
+                new Model { Id = 5, Name = "iphone 13", BrandId = 2 },
+                new Model { Id = 6, Name = "iphone 12", BrandId = 2 },
+                new Model { Id = 7, Name = "mi 11", BrandId = 3 },
+                new Model { Id = 8, Name = "redmi note 10", BrandId = 3 },
+                new Model { Id = 9, Name = "poco f4", BrandId = 3 },
+                new Model { Id = 10, Name = "p40 pro", BrandId = 4 },
+                new Model { Id = 11, Name = "mate 40 pro", BrandId = 4 },
+                new Model { Id = 12, Name = "p30 lite", BrandId = 4 },
+                new Model { Id = 13, Name = "nokia 8.3", BrandId = 5 },
+                new Model { Id = 14, Name = "nokia 7.2", BrandId = 5 },
+                new Model { Id = 15, Name = "nokia 5.4", BrandId = 5 },
+                new Model { Id = 16, Name = "lg velvet", BrandId = 6 },
+                new Model { Id = 17, Name = "lg v60 thinq", BrandId = 6 },
+                new Model { Id = 18, Name = "lg g8x thinq", BrandId = 6 },
+                new Model { Id = 19, Name = "sony xperia 1 ii", BrandId = 7 },
+                new Model { Id = 20, Name = "sony xperia 10 ii", BrandId = 7 },
+                new Model { Id = 21, Name = "sony xperia l4", BrandId = 7 },
+                new Model { Id = 22, Name = "moto g power", BrandId = 8 },
+                new Model { Id = 23, Name = "moto edge 20", BrandId = 8 },
+                new Model { Id = 24, Name = "moto e 2020", BrandId = 8 }
             );
 
             modelBuilder.Entity<Color>().HasData(
-                new Color { Name = "black" },
-                new Color { Name = "white" },
-                new Color { Name = "blue" },
-                new Color { Name = "gray" },
-                new Color { Name = "gold" }
+                new Color { Id = 1, Name = "black" },
+                new Color { Id = 2, Name = "white" },
+                new Color { Id = 3, Name = "blue" },
+                new Color { Id = 4, Name = "gray" },
+                new Color { Id = 5, Name = "gold" }
             );
-
         }
     }
 }

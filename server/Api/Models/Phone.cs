@@ -14,7 +14,5 @@
         public virtual Color Color { get; set; }
 
         public decimal Price { get; set; }
-
-        public List<Item>? Items { get; set; }
     }
 }
