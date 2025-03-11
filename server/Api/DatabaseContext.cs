@@ -60,14 +60,6 @@ namespace Api
                 new Color { Id = 4, Name = "gray" },
                 new Color { Id = 5, Name = "gold" }
             );
-
-            modelBuilder.Entity<Phone>().HasData(
-                new Phone { Id = 1, BrandId = 1, ModelId = 1, ColorId = 1, Price = 500 },
-                new Phone { Id = 2, BrandId = 1, ModelId = 2, ColorId = 2, Price = 600 },
-                new Phone { Id = 3, BrandId = 1, ModelId = 3, ColorId = 3, Price = 1200 },
-                new Phone { Id = 4, BrandId = 2, ModelId = 4, ColorId = 4, Price = 1000 },
-                new Phone { Id = 5, BrandId = 2, ModelId = 5, ColorId = 5, Price = 800 }
-            );
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

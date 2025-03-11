@@ -101,7 +101,8 @@ namespace Api.Migrations
                     BrandId = table.Column<int>(type: "INTEGER", nullable: false),
                     ModelId = table.Column<int>(type: "INTEGER", nullable: false),
                     ColorId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Price = table.Column<decimal>(type: "TEXT", nullable: false)
+                    Price = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ImagePath = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -233,18 +234,6 @@ namespace Api.Migrations
                     { 22, 8, "moto g power" },
                     { 23, 8, "moto edge 20" },
                     { 24, 8, "moto e 2020" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Phones",
-                columns: new[] { "Id", "BrandId", "ColorId", "ModelId", "Price" },
-                values: new object[,]
-                {
-                    { 1, 1, 1, 1, 500m },
-                    { 2, 1, 2, 2, 600m },
-                    { 3, 1, 3, 3, 1200m },
-                    { 4, 2, 4, 4, 1000m },
-                    { 5, 2, 5, 5, 800m }
                 });
 
             migrationBuilder.CreateIndex(

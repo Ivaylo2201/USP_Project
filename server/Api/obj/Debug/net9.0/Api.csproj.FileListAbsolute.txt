@@ -154,3 +154,4 @@ D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\BCrypt.Net-Next.dll
 D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
 D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Api.staticwebassets.runtime.json

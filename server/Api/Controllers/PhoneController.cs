@@ -11,21 +11,43 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class PhoneController(DatabaseContext context) : ControllerBase
+    public class PhoneController(DatabaseContext context, IWebHostEnvironment env) : ControllerBase
     {
         private readonly DatabaseContext _context = context;
+        private readonly IWebHostEnvironment _env = env;
 
         [HttpPost]
-        public IActionResult CreatePhone([FromBody] CreatePhoneRequest request)
+        public IActionResult CreatePhone([FromForm] CreatePhoneRequest request)
         {
             try
             {
+                if (string.IsNullOrEmpty(_env.WebRootPath))
+                {
+                    _env.WebRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+                }
+
+                var uploadsDir = Path.Combine(_env.WebRootPath, "uploads");
+
+                if (!Directory.Exists(uploadsDir))
+                {
+                    Directory.CreateDirectory(uploadsDir);
+                }
+
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(request.Image.FileName)}";
+                var filePath = Path.Combine(_env.WebRootPath, "uploads", fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    request.Image.CopyTo(stream);
+                }
+
                 var phone = new Phone
                 {
                     BrandId = request.BrandId,
                     ModelId = request.ModelId,
                     ColorId = request.ColorId,
-                    Price = request.Price
+                    Price = request.Price,
+                    ImagePath = $"/uploads/{fileName}"
                 };
 
                 _context.Phones.Add(phone);
@@ -52,7 +74,7 @@ namespace Api.Controllers
                 Model = p.Model.Name,
                 Color = p.Color.Name,
                 p.Price,
-                //Image = p.ImageUrl
+                p.ImagePath,
                 isLiked = false
             })
             .ToList();
@@ -80,7 +102,7 @@ namespace Api.Controllers
                     Model = p.Model.Name,
                     Color = p.Color.Name,
                     p.Price,
-                    //Image = p.ImageUrl
+                    p.ImagePath,
                     isLiked = p.LikedBy.Contains(user)
                 })
                 .ToList();

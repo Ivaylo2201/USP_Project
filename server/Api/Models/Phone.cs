@@ -14,6 +14,7 @@
         public virtual Color Color { get; set; }
 
         public decimal Price { get; set; }
+        public required string ImagePath { get; set; }
 
         public List<User> LikedBy { get; set; } = [];
         public List<Item> Items { get; set; } = [];

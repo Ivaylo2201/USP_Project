@@ -15,5 +15,8 @@ namespace Api.Data_Transfer_Objects
 
         [Range(1, 5000, ErrorMessage = "Price must be between 1 and 5000.")]
         public decimal Price { get; set; }
+
+        [Required(ErrorMessage = "Image is required.")]
+        public IFormFile Image { get; set; }
     }
 }

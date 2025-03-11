@@ -334,6 +334,10 @@ namespace Api.Migrations
                     b.Property<int>("ColorId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("ModelId")
                         .HasColumnType("INTEGER");
 
@@ -349,48 +353,6 @@ namespace Api.Migrations
                     b.HasIndex("ModelId");
 
                     b.ToTable("Phones");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BrandId = 1,
-                            ColorId = 1,
-                            ModelId = 1,
-                            Price = 500m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BrandId = 1,
-                            ColorId = 2,
-                            ModelId = 2,
-                            Price = 600m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BrandId = 1,
-                            ColorId = 3,
-                            ModelId = 3,
-                            Price = 1200m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BrandId = 2,
-                            ColorId = 4,
-                            ModelId = 4,
-                            Price = 1000m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BrandId = 2,
-                            ColorId = 5,
-                            ModelId = 5,
-                            Price = 800m
-                        });
                 });
 
             modelBuilder.Entity("Api.Models.User", b =>
