@@ -155,3 +155,12 @@ D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.AspNetCore.
 D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
 D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Api.staticwebassets.runtime.json
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+D:\Web Development\USP_Project\server\Api\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll

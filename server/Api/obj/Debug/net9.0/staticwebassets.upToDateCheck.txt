@@ -1,1 +1,3 @@
-wwwroot\uploads\23bab530-e37b-4e05-a055-16a39bd59549.jpg
+wwwroot\uploads\apple-iphone-14.jpg
+wwwroot\uploads\samsung-galaxy-s23.jpg
+wwwroot\uploads\xiaomi-redminote-13-pro.jpg

@@ -16,49 +16,30 @@ namespace Api
         protected void Seed(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Brand>().HasData(
-                new Brand { Id = 1, Name = "samsung" },
-                new Brand { Id = 2, Name = "iphone" },
-                new Brand { Id = 3, Name = "xiaomi" },
-                new Brand { Id = 4, Name = "huawei" },
-                new Brand { Id = 5, Name = "nokia" },
-                new Brand { Id = 6, Name = "lg" },
-                new Brand { Id = 7, Name = "sony" },
-                new Brand { Id = 8, Name = "motorola" }
+                new Brand { Id = 1, Name = "Samsung" },
+                new Brand { Id = 2, Name = "Apple" },
+                new Brand { Id = 3, Name = "Xiaomi" }
             );
 
             modelBuilder.Entity<Model>().HasData(
-                new Model { Id = 1, Name = "galaxy s23", BrandId = 1 },
-                new Model { Id = 2, Name = "galaxy note 20", BrandId = 1 },
-                new Model { Id = 3, Name = "galaxy z fold 4", BrandId = 1 },
-                new Model { Id = 4, Name = "iphone 14", BrandId = 2 },
-                new Model { Id = 5, Name = "iphone 13", BrandId = 2 },
-                new Model { Id = 6, Name = "iphone 12", BrandId = 2 },
-                new Model { Id = 7, Name = "mi 11", BrandId = 3 },
-                new Model { Id = 8, Name = "redmi note 10", BrandId = 3 },
-                new Model { Id = 9, Name = "poco f4", BrandId = 3 },
-                new Model { Id = 10, Name = "p40 pro", BrandId = 4 },
-                new Model { Id = 11, Name = "mate 40 pro", BrandId = 4 },
-                new Model { Id = 12, Name = "p30 lite", BrandId = 4 },
-                new Model { Id = 13, Name = "nokia 8.3", BrandId = 5 },
-                new Model { Id = 14, Name = "nokia 7.2", BrandId = 5 },
-                new Model { Id = 15, Name = "nokia 5.4", BrandId = 5 },
-                new Model { Id = 16, Name = "lg velvet", BrandId = 6 },
-                new Model { Id = 17, Name = "lg v60 thinq", BrandId = 6 },
-                new Model { Id = 18, Name = "lg g8x thinq", BrandId = 6 },
-                new Model { Id = 19, Name = "sony xperia 1 ii", BrandId = 7 },
-                new Model { Id = 20, Name = "sony xperia 10 ii", BrandId = 7 },
-                new Model { Id = 21, Name = "sony xperia l4", BrandId = 7 },
-                new Model { Id = 22, Name = "moto g power", BrandId = 8 },
-                new Model { Id = 23, Name = "moto edge 20", BrandId = 8 },
-                new Model { Id = 24, Name = "moto e 2020", BrandId = 8 }
+                new Model { Id = 1, Name = "Galaxy S23", BrandId = 1 },
+                new Model { Id = 2, Name = "IPhone 14", BrandId = 2 },
+                new Model { Id = 3, Name = "Redmi Note 13 Pro", BrandId = 3 }
             );
 
             modelBuilder.Entity<Color>().HasData(
-                new Color { Id = 1, Name = "black" },
-                new Color { Id = 2, Name = "white" },
-                new Color { Id = 3, Name = "blue" },
-                new Color { Id = 4, Name = "gray" },
-                new Color { Id = 5, Name = "gold" }
+                new Color { Id = 1, Name = "Black" },
+                new Color { Id = 2, Name = "White" },
+                new Color { Id = 3, Name = "Blue" },
+                new Color { Id = 4, Name = "Gray" },
+                new Color { Id = 5, Name = "Gold" },
+                new Color { Id = 6, Name = "Pink" }
+            );
+
+            modelBuilder.Entity<Phone>().HasData(
+                new Phone { Id = 1, BrandId = 1, ModelId = 1, ColorId = 6, Price = 750, ImagePath = "/uploads/samsung-galaxy-s23.jpg" },
+                new Phone { Id = 2, BrandId = 2, ModelId = 2, ColorId = 1, Price = 1500, ImagePath = "/uploads/apple-iphone-14.jpg" },
+                new Phone { Id = 3, BrandId = 3, ModelId = 3, ColorId = 1, Price = 300, ImagePath = "/uploads/xiaomi-redminote-13-pro.jpg" }
             );
         }
 

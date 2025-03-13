@@ -3,8 +3,8 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "uploads/23bab530-e37b-4e05-a055-16a39bd59549.5jcl7nstnd.jpg",
-      "AssetFile": "uploads/23bab530-e37b-4e05-a055-16a39bd59549.jpg",
+      "Route": "uploads/apple-iphone-14.87hdvcjk25.jpg",
+      "AssetFile": "uploads/apple-iphone-14.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "289745"
+          "Value": "70017"
         },
         {
           "Name": "Content-Type",
@@ -25,31 +25,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"T6r6wUEA6ZTrwAY3eKPPgVfnSzuIlWUcQ8X9HEMN/zs=\""
+          "Value": "\"VPfEYYDwcBsvdlpe+oucTRNDVpO/7rMWVGWYG/Liny4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 15:40:29 GMT"
+          "Value": "Thu, 13 Mar 2025 16:55:36 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5jcl7nstnd"
+          "Value": "87hdvcjk25"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-T6r6wUEA6ZTrwAY3eKPPgVfnSzuIlWUcQ8X9HEMN/zs="
+          "Value": "sha256-VPfEYYDwcBsvdlpe+oucTRNDVpO/7rMWVGWYG/Liny4="
         },
         {
           "Name": "label",
-          "Value": "uploads/23bab530-e37b-4e05-a055-16a39bd59549.jpg"
+          "Value": "uploads/apple-iphone-14.jpg"
         }
       ]
     },
     {
-      "Route": "uploads/23bab530-e37b-4e05-a055-16a39bd59549.jpg",
-      "AssetFile": "uploads/23bab530-e37b-4e05-a055-16a39bd59549.jpg",
+      "Route": "uploads/apple-iphone-14.jpg",
+      "AssetFile": "uploads/apple-iphone-14.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "289745"
+          "Value": "70017"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,181 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"T6r6wUEA6ZTrwAY3eKPPgVfnSzuIlWUcQ8X9HEMN/zs=\""
+          "Value": "\"VPfEYYDwcBsvdlpe+oucTRNDVpO/7rMWVGWYG/Liny4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 11 Mar 2025 15:40:29 GMT"
+          "Value": "Thu, 13 Mar 2025 16:55:36 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-T6r6wUEA6ZTrwAY3eKPPgVfnSzuIlWUcQ8X9HEMN/zs="
+          "Value": "sha256-VPfEYYDwcBsvdlpe+oucTRNDVpO/7rMWVGWYG/Liny4="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/samsung-galaxy-s23.jnr8r36ys7.jpg",
+      "AssetFile": "uploads/samsung-galaxy-s23.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "217653"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/wRhqvXAjgs3q89UAcRYj2EO4mt5QO1mc163Yda/+wY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Mar 2025 16:58:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jnr8r36ys7"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/wRhqvXAjgs3q89UAcRYj2EO4mt5QO1mc163Yda/+wY="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/samsung-galaxy-s23.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/samsung-galaxy-s23.jpg",
+      "AssetFile": "uploads/samsung-galaxy-s23.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "217653"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/wRhqvXAjgs3q89UAcRYj2EO4mt5QO1mc163Yda/+wY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Mar 2025 16:58:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/wRhqvXAjgs3q89UAcRYj2EO4mt5QO1mc163Yda/+wY="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/xiaomi-redminote-13-pro.ai3sgxdkhk.jpg",
+      "AssetFile": "uploads/xiaomi-redminote-13-pro.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31883"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wgRvX3sTJG5crVCEJfIfOUtMihmXcb/ryJsRsTY57Jk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Mar 2025 16:49:56 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ai3sgxdkhk"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wgRvX3sTJG5crVCEJfIfOUtMihmXcb/ryJsRsTY57Jk="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/xiaomi-redminote-13-pro.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/xiaomi-redminote-13-pro.jpg",
+      "AssetFile": "uploads/xiaomi-redminote-13-pro.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "31883"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wgRvX3sTJG5crVCEJfIfOUtMihmXcb/ryJsRsTY57Jk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Mar 2025 16:49:56 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wgRvX3sTJG5crVCEJfIfOUtMihmXcb/ryJsRsTY57Jk="
         }
       ]
     }

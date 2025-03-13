@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+body {
+    background-color: aliceblue;
+}
+
+@theme {
+  --font-dmsans: 'DM Sans', sans-serif;
+}
