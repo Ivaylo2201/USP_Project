@@ -1,8 +1,14 @@
-export default function Page({ children }: React.PropsWithChildren) {
+import Header from '../ui/Header';
+
+type PageProps = {
+  className?: string;
+} & React.PropsWithChildren;
+
+export default function Page({ children, className = '' }: PageProps) {
   return (
-    <div className='flex flex-col min-h-screen '>
-      <header></header>
-      <main className="grow">{children}</main>
+    <div className={`flex flex-col min-h-screen ${className}`}>
+      <Header />
+      <main className='flex justify-center items-center grow p-10'>{children}</main>
       <footer></footer>
     </div>
   );

@@ -13,6 +13,8 @@
         public int ColorId { get; set; }
         public virtual Color Color { get; set; }
 
+        public int Memory { get; set; }
+
         public decimal Price { get; set; }
         public required string ImagePath { get; set; }
 

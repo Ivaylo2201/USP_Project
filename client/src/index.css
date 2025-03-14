@@ -6,4 +6,7 @@ body {
 
 @theme {
   --font-dmsans: 'DM Sans', sans-serif;
+
+  --color-light-darkblue: #47575e;
+  --color-darkblue: #37444a;
 }

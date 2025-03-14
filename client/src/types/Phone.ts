@@ -4,6 +4,7 @@ export type Phone = {
   model: string;
   color: string;
   price: number;
+  memory: number;
   imagePath: string;
   isLiked: boolean;
 };

@@ -35,7 +35,8 @@ namespace Api.Controllers
                                 brand = i.Phone.Brand.Name,
                                 model = i.Phone.Model.Name,
                                 color = i.Phone.Color.Name,
-                                price = i.Phone.Price
+                                price = i.Phone.Price,
+                                memory = i.Phone.Memory
                             },
                             price = i.Quantity * i.Phone.Price
                         })

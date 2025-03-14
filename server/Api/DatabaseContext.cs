@@ -37,9 +37,9 @@ namespace Api
             );
 
             modelBuilder.Entity<Phone>().HasData(
-                new Phone { Id = 1, BrandId = 1, ModelId = 1, ColorId = 6, Price = 750, ImagePath = "/uploads/samsung-galaxy-s23.jpg" },
-                new Phone { Id = 2, BrandId = 2, ModelId = 2, ColorId = 1, Price = 1500, ImagePath = "/uploads/apple-iphone-14.jpg" },
-                new Phone { Id = 3, BrandId = 3, ModelId = 3, ColorId = 1, Price = 300, ImagePath = "/uploads/xiaomi-redminote-13-pro.jpg" }
+                new Phone { Id = 1, BrandId = 1, ModelId = 1, ColorId = 6, Price = 750, Memory = 128, ImagePath = "/uploads/samsung-galaxy-s23.jpg" },
+                new Phone { Id = 2, BrandId = 2, ModelId = 2, ColorId = 1, Price = 1500, Memory = 512, ImagePath = "/uploads/apple-iphone-14.jpg" },
+                new Phone { Id = 3, BrandId = 3, ModelId = 3, ColorId = 1, Price = 300, Memory = 256, ImagePath = "/uploads/xiaomi-redminote-13-pro.jpg" }
             );
         }
 

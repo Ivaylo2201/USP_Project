@@ -47,6 +47,7 @@ namespace Api.Controllers
                     ModelId = request.ModelId,
                     ColorId = request.ColorId,
                     Price = request.Price,
+                    Memory = request.Memory,
                     ImagePath = $"/uploads/{fileName}"
                 };
 
@@ -74,6 +75,7 @@ namespace Api.Controllers
                 Model = p.Model.Name,
                 Color = p.Color.Name,
                 p.Price,
+                p.Memory,
                 p.ImagePath,
                 isLiked = false
             })
@@ -102,6 +104,7 @@ namespace Api.Controllers
                     Model = p.Model.Name,
                     Color = p.Color.Name,
                     p.Price,
+                    p.Memory,
                     p.ImagePath,
                     isLiked = p.LikedBy.Contains(user)
                 })

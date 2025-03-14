@@ -128,6 +128,11 @@
         "IsRequired": false
       },
       {
+        "Name": "Memory",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "Image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
