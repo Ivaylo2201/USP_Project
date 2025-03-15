@@ -17,7 +17,9 @@ export default function SearchBox() {
 
       <button
         className='bg-blue-400 hover:bg-blue-300 hover:border-blue-300 transition-colors duration-200 flex justify-center items-center border border-blue-400 rounded-tr-full rounded-br-full pl-3 pr-4 cursor-pointer'
-        onClick={() => navigate(`/catalogue?query=${search}`)}
+        onClick={() => {
+          if (search !== '') navigate(`/catalogue?search=${search}`);
+        }}
       >
         <Search
           strokeWidth={1.75}

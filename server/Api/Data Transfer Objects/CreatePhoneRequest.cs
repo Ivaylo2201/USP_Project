@@ -16,7 +16,7 @@ namespace Api.Data_Transfer_Objects
         [Range(1, 5000, ErrorMessage = "Price must be between 1 and 5000.")]
         public decimal Price { get; set; }
 
-        [Range(4, 1024, ErrorMessage = "Price must be between 4 and 1024.")]
+        [Range(4, 1024, ErrorMessage = "Memory must be between 4 and 1024.")]
         public int Memory { get; set; }
 
         [Required(ErrorMessage = "Image is required.")]

@@ -65,9 +65,10 @@ namespace Api.Controllers
 
         [HttpGet]
         [Route("public")]
-        public IActionResult GetPublicPhones([FromQuery] string? brand, string? model, string? color, decimal? max, string? sort = "asc")
+        public IActionResult GetPublicPhones([FromQuery] string? brand, string? model, string? color, decimal? max, string? search, string? sort = "asc")
         {
-            var query = this.GetPhones(brand, model, color, max, sort);
+            var query = this.GetPhones(brand, model, color, max, sort, search);
+
             var phones = query.Select(p => new
             {
                 p.Id,
@@ -87,7 +88,7 @@ namespace Api.Controllers
         [HttpGet]
         [Authorize]
         [Route("authenticated")]
-        public IActionResult GetAuthenticatedPhones([FromQuery] string? brand, string? model, string? color, decimal? max, string? sort = "asc")
+        public IActionResult GetAuthenticatedPhones([FromQuery] string? brand, string? model, string? color, decimal? max, string? query, string? sort = "asc")
         {
             if (int.TryParse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out int id))
             {
@@ -96,8 +97,8 @@ namespace Api.Controllers
                 if (user == null)
                     return Unauthorized(new { message = "The provided token was invalid." });
 
-                var query = this.GetPhones(brand, model, color, max, sort);
-                var phones = query.Select(p => new
+                var phonesQuery = this.GetPhones(brand, model, color, max, sort, query);
+                var phones = phonesQuery.Select(p => new
                 {
                     p.Id,
                     Brand = p.Brand.Name,
@@ -118,7 +119,7 @@ namespace Api.Controllers
             }          
         }
 
-        private IQueryable<Phone> GetPhones(string? brand, string? model, string? color, decimal? max, string? sort)
+        private IQueryable<Phone> GetPhones(string? brand, string? model, string? color, decimal? max, string? sort, string? search)
         {
             var query = _context.Phones
                     .Include(p => p.Brand)
@@ -126,17 +127,21 @@ namespace Api.Controllers
                     .Include(p => p.Color)
                     .AsQueryable();
 
+            if (!string.IsNullOrEmpty(search))
+                query = query.Where(p => p.Brand.Name.ToLower().Contains(search.ToLower()) || p.Model.Name.ToLower().Contains(search.ToLower()));
+
             if (!string.IsNullOrEmpty(brand))
-                query = query.Where(p => p.Brand.Name.Contains(brand));
+                query = query.Where(p => p.Brand.Name.ToLower().Contains(brand.ToLower()));
 
             if (!string.IsNullOrEmpty(model))
-                query = query.Where(p => p.Model.Name.Contains(model));
+                query = query.Where(p => p.Model.Name.ToLower().Contains(model.ToLower()));
 
             if (!string.IsNullOrEmpty(color))
-                query = query.Where(p => p.Color.Name.Contains(color));
+                query = query.Where(p => p.Color.Name.ToLower().Contains(color.ToLower()));
 
             if (max.HasValue)
                 query = query.Where(p => p.Price <= max.Value);
+
 
             query = sort == "asc" ? query.OrderBy(p => ((double)p.Price)) :
                                     query.OrderByDescending(p => ((double)p.Price));
